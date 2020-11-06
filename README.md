@@ -29,3 +29,11 @@ Use this command for generate deploy code in dist **folder**.
 ```javascript
 yarn build
 ```
+
+### Test Enviroment
+
+Use this command for run logic and render test.
+
+```javascript
+yarn test
+```
