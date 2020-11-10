@@ -2,9 +2,12 @@
 
 Is a application for share and managment information for any person and create profile for each one.
 
-## Installation
+## Requirements
 
+You need to use [**yarn**](https://classic.yarnpkg.com/en/docs/install) cause husky, commitlint and git hook need it for run.
 Use the package managment [**yarn**](https://classic.yarnpkg.com/en/docs/install) to install all dependencies.
+
+## Installation
 
 Clone this repositori and run this command.
 
@@ -16,7 +19,7 @@ yarn install
 
 ### Development Environment
 
-Use this command and open a browser with the url that show in the console.
+Use this command and open the browser with the url that show in the console.
 
 ```javascript
 yarn start
