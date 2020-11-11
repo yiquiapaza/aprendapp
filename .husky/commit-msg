@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname $0)/_/husky.sh"
 
-npx commitlint -E -e $HUSKY_GIT_PARAMS --color 
+yarn commitlint -E -e $HUSKY_GIT_PARAMS --color
