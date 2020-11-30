@@ -1,3 +1,5 @@
+import '../styles/footer.css';
+
 export const Footer = () => {
-  return <footer></footer>;
+  return <footer className='footer'>Yhonatan Jesus </footer>;
 };
