@@ -22,7 +22,7 @@ yarn install
 Use this command and open the browser with the url that show in the console.
 
 ```javascript
-yarn start
+yarn  start
 ```
 
 ### Produccion Enviroment
