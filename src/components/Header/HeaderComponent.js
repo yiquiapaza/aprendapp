@@ -1,10 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1
+  },
+  loginButton: {
+    color: 'white'
   }
 }));
 
@@ -36,10 +40,14 @@ export const HeaderComponent = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Typography variant='h6' className='{classes.title}'>
-              Aprendapp
+              <Link to='/'>Aprendapp</Link>
             </Typography>
-            <Button color='inherit'>Login</Button>
+
+            <Link className={classes.loginButton} to='/login'>
+              <AccountCircleIcon> </AccountCircleIcon> Login
+            </Link>
           </Toolbar>
         </AppBar>
       </header>
