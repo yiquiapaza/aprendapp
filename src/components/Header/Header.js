@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export const Header = () => {
+const Header = () => {
   const classes = useStyles();
   console.log(classes);
   if (!classes) {
@@ -45,3 +45,5 @@ export const Header = () => {
       </header>
     );
 };
+
+export default Header;
