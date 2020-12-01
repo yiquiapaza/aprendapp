@@ -10,8 +10,8 @@ const useStyles = makeStyles({
     height: 140
   }
 });
-
-export const CardComponent = ({ title, img, description }) => {
+// TODO: add props with title, img url, description etc.
+export const CardComponent = () => {
   const classes = useStyles();
   if (!classes) {
     return (
