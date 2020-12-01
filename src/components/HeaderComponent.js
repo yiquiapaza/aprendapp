@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export const Header = () => {
+export const HeaderComponent = () => {
   const classes = useStyles();
   console.log(classes);
   if (!classes) {
