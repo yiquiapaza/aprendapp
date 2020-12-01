@@ -1,7 +1,5 @@
 import './footer.css';
 
-const Footer = () => {
+export const FooterComponent = () => {
   return <footer className='footer'>Yhonatan Jesus </footer>;
 };
-
-export default Footer;

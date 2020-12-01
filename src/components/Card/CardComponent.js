@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   }
 });
 // TODO: add props with title, img url, description etc.
-const CardComponent = () => {
+export const CardComponent = () => {
   const classes = useStyles();
   if (!classes) {
     return (
@@ -23,4 +23,3 @@ const CardComponent = () => {
     <div>Error</div>;
   }
 };
-export default CardComponent;
