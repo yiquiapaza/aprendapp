@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -10,7 +10,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import clsx from 'clsx';
-
+import StoreContext from '../../Context/StoreContext';
+import { useHistory } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: '5rem',
@@ -26,17 +27,36 @@ const useStyles = makeStyles((theme) => ({
     width: '30ch'
   }
 }));
-const Login = () => {
-  const classes = useStyles();
 
-  const [values, setValues] = React.useState({
+function initialState() {
+  return {
     user: '',
     password: '',
     showPassword: false
-  });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
   };
+}
+
+const Login = () => {
+  const classes = useStyles(useStyles);
+  const [values, setValues] = useState(initialState);
+  const { setToken } = useContext(StoreContext);
+  const history = useHistory();
+  function onChange(event) {
+    const { value, name } = event.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  }
+  function loginEnter({ user, password }) {
+    if (user === 'admin' && password === 'admin') {
+      return { token: '1234' };
+    }
+    return { error: 'usuario no encontrado' };
+  }
+  // const handleChange = (prop) => (event) => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -44,6 +64,15 @@ const Login = () => {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+  const handleClick = (event) => {
+    event.preventDefault();
+    const { token } = loginEnter(values);
+    if (token) {
+      setToken(token);
+      return history.push('/welcome');
+    }
+    setValues(initialState);
   };
   return (
     <div className={classes.root}>
@@ -58,8 +87,9 @@ const Login = () => {
         >
           <Input
             id='standard-adornment-user'
+            name='user'
             value={values.user}
-            onChange={handleChange('user')}
+            onChange={onChange}
             endAdornment={<InputAdornment position='end'>User</InputAdornment>}
             aria-describedby='standard-user-helper-text'
             inputProps={{
@@ -76,7 +106,8 @@ const Login = () => {
             id='standard-adornment-password'
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
-            onChange={handleChange('password')}
+            name='password'
+            onChange={onChange}
             endAdornment={
               <InputAdornment position='end'>
                 <IconButton
@@ -90,7 +121,7 @@ const Login = () => {
             }
           />
         </FormControl>
-        <Button variant='outlined' color='primary'>
+        <Button variant='outlined' color='primary' onClick={handleClick}>
           Login
         </Button>
       </form>
