@@ -1,6 +1,7 @@
 footer {
-  position: fixed;
-  width: 100%;
+  position: relative;
+  width: 100% !important;
+  height: 100px !important;
   text-align: center;
   padding: 10px 0;
   background-color: red;

@@ -11,7 +11,7 @@ Use the package managment [**yarn**](https://classic.yarnpkg.com/en/docs/install
 
 Clone this repositori and run this command.
 
-```javascript
+```code
 yarn install
 ```
 
@@ -21,8 +21,8 @@ yarn install
 
 Use this command and open the browser with the url that show in the console.
 
-```javascript
-yarn  start
+```code
+yarn dev
 ```
 
 ### Produccion Enviroment
@@ -37,6 +37,6 @@ yarn build
 
 Use this command for run logic and render test.
 
-```javascript
+```code
 yarn test
 ```
